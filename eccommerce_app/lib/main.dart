@@ -1,7 +1,8 @@
-import 'package:eccommerce_app/features/main/screens/main_screen.dart';
+import 'package:eccommerce_app/features/main/ui/screens/main_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-void main() => runApp(const EcommerceApp());
+void main() => runApp(ProviderScope(child: EcommerceApp()));
 
 class EcommerceApp extends StatelessWidget {
   const EcommerceApp({super.key});

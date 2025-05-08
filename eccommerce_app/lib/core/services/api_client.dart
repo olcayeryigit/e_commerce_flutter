@@ -1,7 +1,7 @@
 /*api_client.dart dosyası, uygulamanın dış dünya ile (genellikle bir sunucu ile) haberleşmesini sağlayacak olan temel API istemcisini içerir. Bu dosyada, genellikle Dio paketini kullanarak HTTP isteklerini yöneteceksin. Bu istemci, API çağrılarını yapmayı kolaylaştıran bir sınıf olarak işlev görür. */
 
 import 'package:dio/dio.dart';
-import 'package:eccommerce_app/core/constants.dart';
+import 'package:eccommerce_app/core/constants/app_constants.dart';
 import 'package:eccommerce_app/core/error/api_error.dart';
 
 class ApiClient {
@@ -11,7 +11,7 @@ class ApiClient {
   ApiClient()
     : _dio = Dio(
         BaseOptions(
-          baseUrl: Constants.baseUrl,
+          baseUrl: AppConstants.baseUrl,
           connectTimeout: const Duration(seconds: 5), // Bağlantı zaman aşımı
           receiveTimeout: const Duration(seconds: 3), // Veri alma zaman aşımı
         ),

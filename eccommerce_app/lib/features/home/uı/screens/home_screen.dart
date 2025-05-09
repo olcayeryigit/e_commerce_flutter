@@ -1,5 +1,5 @@
 import 'package:eccommerce_app/features/common/fade_slider/ui/widgets/fade_slider.dart';
-import 'package:eccommerce_app/features/main/ui/widgets/topbar/widgets/topbar.dart';
+import 'package:eccommerce_app/features/main/ui/widgets/topbar/topbar.dart';
 import 'package:eccommerce_app/features/home/u%C4%B1/widgets/category_card.dart';
 import 'package:eccommerce_app/features/home/u%C4%B1/widgets/grid_card.dart';
 import 'package:flutter/material.dart';
@@ -9,10 +9,10 @@ import '../../../../data/grid_categories.dart';
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return buildBody();
+    return buildBody(context);
   }
 
-  buildBody() {
+  buildBody(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -32,10 +32,12 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           buildGridList(
+            context,
             gridCategories[0]['title'],
             gridCategories[0]['categories'],
           ),
           buildGridList(
+            context,
             gridCategories[1]['title'],
             gridCategories[1]['categories'],
           ),
@@ -47,48 +49,76 @@ class HomeScreen extends StatelessWidget {
   buildCategoriesScrollable() {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      child: Row(
-        children:
-            categories.map((category) {
-              return CategoryCard(
-                image: category["image"]!, //string olduğundan eminiz
-                title: category["title"]!,
-              );
-            }).toList(),
+      child: Container(
+        padding: EdgeInsets.only(top: 4.0, bottom: 4.0),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.transparent, // Başlangıç rengi: #63dbe2
+              Color.fromARGB(255, 181, 184, 182),
+            ],
+          ),
+        ),
+        child: Row(
+          children:
+              categories.map((category) {
+                return CategoryCard(
+                  image: category["image"]!, //string olduğundan eminiz
+                  title: category["title"]!,
+                );
+              }).toList(),
+        ),
       ),
     );
   }
 
-  buildGridList(String gtitle, List gCategories) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Column(
-        crossAxisAlignment: (CrossAxisAlignment.start),
-        children: [
-          Row(children: [SizedBox(width: 8.0), Text(gtitle)]),
-
-          GridView.builder(
-            shrinkWrap:
-                true, // Bu satır GridView'ın boyutlarını ayarlar - BU SATIR KRİTİK/koymazsak hata alıyoruz
-            physics:
-                NeverScrollableScrollPhysics(), // <=== Scroll çakışmasını engeller
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount:
-                  2, //Ekranda 2 eleman olacak şekilde ayar yapıyoruz.
-              crossAxisSpacing: 5.0,
+  buildGridList(BuildContext context, String gtitle, List gCategories) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(color: Colors.grey, width: 2.0)),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          crossAxisAlignment: (CrossAxisAlignment.start),
+          children: [
+            Row(
+              children: [
+                SizedBox(width: 8.0),
+                Text(gtitle, style: Theme.of(context).textTheme.headlineMedium),
+              ],
             ),
 
-            itemCount: gCategories.length,
-            itemBuilder: (context, index) {
-              // Ürün bilgilerini map'ten alıyoruz
-              var category = gCategories[index];
-              return GridCard(
-                image: category['image']!, // Varsayılan resim
-                title: category['title']!, // Varsayılan başlık
-              );
-            },
-          ),
-        ],
+            GridView.builder(
+              shrinkWrap:
+                  true, // Bu satır GridView'ın boyutlarını ayarlar - BU SATIR KRİTİK/koymazsak hata alıyoruz
+              physics:
+                  NeverScrollableScrollPhysics(), // <=== Scroll çakışmasını engeller
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount:
+                    2, //Ekranda 2 eleman olacak şekilde ayar yapıyoruz.
+                crossAxisSpacing: 5.0,
+              ),
+
+              itemCount: gCategories.length,
+              itemBuilder: (context, index) {
+                // Ürün bilgilerini map'ten alıyoruz
+                var category = gCategories[index];
+                return GridCard(
+                  image: category['image']!, // Varsayılan resim
+                  title: category['title']!, // Varsayılan başlık
+                );
+              },
+            ),
+            TextButton(
+              onPressed: () {},
+              child: Text('See more'),
+              style: TextButton.styleFrom(foregroundColor: Colors.blue),
+            ),
+          ],
+        ),
       ),
     );
   }

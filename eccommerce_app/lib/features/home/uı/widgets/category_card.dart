@@ -12,8 +12,9 @@ class CategoryCard extends StatelessWidget {
       child: Container(
         width: MediaQuery.of(context).size.width / 2.6,
         child: Card(
+          clipBehavior: Clip.hardEdge,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(0.0),
+            borderRadius: BorderRadius.circular(6.0),
           ),
           child: Column(
             crossAxisAlignment:
@@ -21,7 +22,13 @@ class CategoryCard extends StatelessWidget {
             children: [
               Padding(
                 padding: EdgeInsets.all(8.0),
-                child: Container(height: 40.0, child: Text('${title}')),
+                child: Container(
+                  height: 40.0,
+                  child: Text(
+                    '${title}',
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                ),
               ),
 
               Image.network(

@@ -18,12 +18,12 @@ class HomeScreen extends StatelessWidget {
         children: [
           LocationSearchInput(),
           SizedBox(
-            height: 350.0,
+            height: 460.0,
             child: Stack(
               children: [
                 FadeSlider(),
                 Positioned(
-                  top: 200.0,
+                  top: 230.0,
                   left: 0, //left-right vermeyince scrollable çalışmıyor
                   right: 0,
                   child: buildCategoriesScrollable(),

@@ -28,7 +28,7 @@ class CategoryCard extends StatelessWidget {
                 '${image}',
                 fit: BoxFit.cover,
                 width: MediaQuery.of(context).size.width,
-                height: 120.0,
+                height: 175.0,
               ),
             ],
           ),

@@ -1,13 +1,13 @@
 List<Map<String, String>> categories = [
   {
     'image':
-        'https://cdn.pixabay.com/photo/2020/05/23/07/25/maciag-5208359_1280.jpg',
-    'title': 'Glow up under \$25',
+        'https://raw.githubusercontent.com/olcayeryigit/e_commerce_flutter/refs/heads/master/1.jpg',
+    'title': 'Speed & Style',
   },
   {
     'image':
-        'https://cdn.pixabay.com/photo/2021/01/23/18/41/computer-5943335_1280.jpg',
-    'title': 'Speed & Style',
+        'https://raw.githubusercontent.com/olcayeryigit/e_commerce_flutter/refs/heads/master/2.jpg',
+    'title': 'Glow up under \$25',
   },
 
   {

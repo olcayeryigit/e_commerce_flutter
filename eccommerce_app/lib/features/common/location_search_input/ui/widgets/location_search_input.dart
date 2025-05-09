@@ -8,7 +8,7 @@ class LocationSearchInput extends StatelessWidget {
         gradient: LinearGradient(
           colors: [
             Color(0xFF63DBE2), // Başlangıç rengi: #63dbe2
-            Color(0xFF8EE8CE),
+            Color(0xFFA1E5D0),
           ], // Bitiş rengi: #8ee8ce]),
         ),
       ),

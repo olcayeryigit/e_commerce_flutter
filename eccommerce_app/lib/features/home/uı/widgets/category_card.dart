@@ -10,7 +10,7 @@ class CategoryCard extends StatelessWidget {
     return InkWell(
       onTap: () => {print('${title} tıklandı')},
       child: Container(
-        width: MediaQuery.of(context).size.width / 2.5,
+        width: MediaQuery.of(context).size.width / 2.6,
         child: Card(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(0.0),
@@ -28,7 +28,7 @@ class CategoryCard extends StatelessWidget {
                 '${image}',
                 fit: BoxFit.cover,
                 width: MediaQuery.of(context).size.width,
-                height: 175.0,
+                height: 150.0,
               ),
             ],
           ),

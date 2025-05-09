@@ -1,5 +1,5 @@
 import 'package:eccommerce_app/features/common/fade_slider/ui/widgets/fade_slider.dart';
-import 'package:eccommerce_app/features/common/location_search_input/ui/widgets/location_search_input.dart';
+import 'package:eccommerce_app/features/main/ui/widgets/topbar/widgets/topbar.dart';
 import 'package:eccommerce_app/features/home/u%C4%B1/widgets/category_card.dart';
 import 'package:eccommerce_app/features/home/u%C4%B1/widgets/grid_card.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          LocationSearchInput(),
+          TopBar(),
           SizedBox(
             height: 460.0,
             child: Stack(

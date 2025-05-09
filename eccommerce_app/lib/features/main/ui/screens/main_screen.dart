@@ -1,12 +1,12 @@
 import 'package:eccommerce_app/features/main/state/_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../../provider/bottom_nav_page_index_provider.dart';
+import '../../provider/page_index_provider.dart';
 
 class MainScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selectedPageIndex = ref.watch(bottomNavPageIndexProvider);
+    final selectedPageIndex = ref.watch(pageIndexProvider);
     //Bu, sağlayıcının (provider'ın) tuttuğu int değeri (şu anki aktif sekme index'ini) okur.
     //Dinler, yani değiştiğinde UI yeniden çizilir.
     //ref.read(provider.notifier).state değiştiğinde watch(provider) tetiklenerek ui tekrar çizilir
@@ -15,7 +15,7 @@ class MainScreen extends HookConsumerWidget {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedPageIndex,
         onTap: (index) {
-          ref.read(bottomNavPageIndexProvider.notifier).state = index;
+          ref.read(pageIndexProvider.notifier).state = index;
         },
         //	Sadece okur, değişiklikleri takip etmez. Genelde onTap, onPressed gibi event'lerde kullanılır.
         type: BottomNavigationBarType.fixed,

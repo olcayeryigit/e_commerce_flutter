@@ -8,19 +8,26 @@ class GridCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0.0)),
-      child: Column(
-        crossAxisAlignment: (CrossAxisAlignment.start),
-        children: [
-          Image.network(
-            image, // Resim URL'si
-            fit: BoxFit.cover,
-            height: 180.0,
-            width: MediaQuery.of(context).size.width,
-          ),
-          Text(title), // Ürün adı
-        ],
+    return InkWell(
+      onTap: () => print('${title} tıklandı'),
+      child: Card(
+        shadowColor: Color.fromARGB(0, 255, 255, 255),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0.0)),
+        child: Column(
+          crossAxisAlignment: (CrossAxisAlignment.start),
+          children: [
+            Image.network(
+              image, // Resim URL'si
+              fit: BoxFit.cover,
+              height: 160.0,
+              width: MediaQuery.of(context).size.width,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Text(title),
+            ), // Ürün adı
+          ],
+        ),
       ),
     );
   }

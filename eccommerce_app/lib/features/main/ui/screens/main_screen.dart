@@ -27,10 +27,7 @@ class MainScreen extends HookConsumerWidget {
         unselectedItemColor: Colors.black,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: ''),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications_outlined),
-            label: '',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: ''),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart_outlined),
             label: '',

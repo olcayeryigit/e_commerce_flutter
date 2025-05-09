@@ -11,6 +11,8 @@ class EcommerceApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'Helvetica Neue'),
+
       home: MainScreen(), // MainScreen, BottomNavigationBar ile gelir
     );
   }

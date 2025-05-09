@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class NotificationScreen extends StatelessWidget {
+class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Text("Notifications");
+    return Text('Profile');
   }
 }

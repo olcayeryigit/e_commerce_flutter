@@ -4,7 +4,7 @@ import 'package:eccommerce_app/features/home/u%C4%B1/widgets/category_card.dart'
 import 'package:eccommerce_app/features/home/u%C4%B1/widgets/grid_card.dart';
 import 'package:flutter/material.dart';
 import '../../../../data/categories.dart';
-import '../../../../data/products.dart';
+import '../../../../data/grid_categories.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -31,7 +31,14 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          buildGridList(),
+          buildGridList(
+            gridCategories[0]['title'],
+            gridCategories[0]['categories'],
+          ),
+          buildGridList(
+            gridCategories[1]['title'],
+            gridCategories[1]['categories'],
+          ),
         ],
       ),
     );
@@ -52,13 +59,13 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  buildGridList() {
+  buildGridList(String gtitle, List gCategories) {
     return Padding(
-      padding: const EdgeInsets.only(top: 5.0),
+      padding: const EdgeInsets.all(10.0),
       child: Column(
         crossAxisAlignment: (CrossAxisAlignment.start),
         children: [
-          Row(children: [SizedBox(width: 5.0), Text("Categories Title")]),
+          Row(children: [SizedBox(width: 8.0), Text(gtitle)]),
 
           GridView.builder(
             shrinkWrap:
@@ -68,14 +75,16 @@ class HomeScreen extends StatelessWidget {
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount:
                   2, //Ekranda 2 eleman olacak şekilde ayar yapıyoruz.
+              crossAxisSpacing: 5.0,
             ),
-            itemCount: products.length,
+
+            itemCount: gCategories.length,
             itemBuilder: (context, index) {
               // Ürün bilgilerini map'ten alıyoruz
-              var product = products[index];
+              var category = gCategories[index];
               return GridCard(
-                image: product['image']!,
-                title: product['title']!,
+                image: category['image']!, // Varsayılan resim
+                title: category['title']!, // Varsayılan başlık
               );
             },
           ),
